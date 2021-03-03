@@ -14,10 +14,10 @@ class UserViewController: UIViewController {
     @IBOutlet weak var language: UITextField!
     
     @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) {
-        
+        NetworkManager.order = sender.selectedSegmentIndex
     }
     
-    @IBAction func StartSearch(_ sender: UIButton) {
+    @IBAction func startSearch(_ sender: UIButton) {
         
     }
     
