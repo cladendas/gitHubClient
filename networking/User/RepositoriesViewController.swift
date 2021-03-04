@@ -18,7 +18,6 @@ class RepositoriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         NetworkManager.performSearchRepoRequest { (repositories) in
             self.repositories = repositories
-            print("2222", self.repositories.count, repositories.count)
             
             DispatchQueue.main.async {
                 self.tableRepositories.reloadData()
@@ -30,8 +29,6 @@ class RepositoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableRepositories.reloadData()
     }
 }
 
@@ -51,6 +48,4 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
-    
-    
 }
