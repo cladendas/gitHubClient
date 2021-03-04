@@ -104,7 +104,7 @@
                                 <state key="normal" title="Start search"/>
                                 <connections>
                                     <action selector="startSearch:" destination="o7K-JG-BQG" eventType="touchUpInside" id="40U-6j-7sO"/>
-                                    <segue destination="rmI-NW-EuD" kind="show" id="CLH-k3-IZt"/>
+                                    <segue destination="rmI-NW-EuD" kind="show" identifier="goToRepositories" id="CLH-k3-IZt"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-QQ-GLp">
@@ -187,7 +187,7 @@
         <!--Repositories-->
         <scene sceneID="PYW-Ek-Bqb">
             <objects>
-                <viewController id="rmI-NW-EuD" customClass="RepositoriesViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoriesViewController" id="rmI-NW-EuD" customClass="RepositoriesViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EQ-g7-FtZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="78" width="414" height="658"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="137" id="lDY-pH-BRU" customClass="RepositoriesTableViewCell" customModule="networking" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoriesTableViewCell" rowHeight="137" id="lDY-pH-BRU" customClass="RepositoriesTableViewCell" customModule="networking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lDY-pH-BRU" id="q8j-VI-X9X">
@@ -209,9 +209,15 @@
                                                         <constraint firstAttribute="height" constant="92" id="RXN-mc-Jcx"/>
                                                         <constraint firstAttribute="width" constant="92" id="eek-Rt-Qas"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="46"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xao-e2-1kD">
                                                     <rect key="frame" x="8" y="8" width="293" height="33"/>
+                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="Q4L-uo-nIA"/>
                                                     </constraints>
@@ -227,6 +233,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="owner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4up-FF-uH2">
                                                     <rect key="frame" x="309" y="108" width="92" height="21"/>
+                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="92" id="s4U-Ae-rql"/>
                                                     </constraints>
@@ -251,10 +258,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="avatar" destination="78O-Bo-NUu" id="cw2-O9-IxY"/>
-                                            <outlet property="descriptionLabel" destination="aVV-12-EYP" id="ZgD-A8-Qz5"/>
-                                            <outlet property="name" destination="Xao-e2-1kD" id="jUT-u6-ycd"/>
-                                            <outlet property="owner" destination="4up-FF-uH2" id="DCm-oM-VcJ"/>
+                                            <outlet property="avatar" destination="78O-Bo-NUu" id="20P-Ya-6xr"/>
+                                            <outlet property="descriptionLabel" destination="aVV-12-EYP" id="nUl-1c-Dxp"/>
+                                            <outlet property="name" destination="Xao-e2-1kD" id="UGc-6m-WcG"/>
+                                            <outlet property="owner" destination="4up-FF-uH2" id="mrM-zm-Rbq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -263,7 +270,7 @@
                                     <outlet property="delegate" destination="rmI-NW-EuD" id="ikY-Is-QLe"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repositories found: 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-JY-buE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repositories found: 0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-JY-buE">
                                 <rect key="frame" x="0.0" y="44" width="414" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="KB5-lE-XYg"/>
@@ -322,6 +329,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -13,8 +13,13 @@ class UserViewController: UIViewController {
     @IBOutlet weak var repositoryName: UITextField!
     @IBOutlet weak var language: UITextField!
     
+    var repositories: [Repository] = []
+    
     @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) {
         NetworkManager.order = sender.selectedSegmentIndex
+        NetworkManager.key = repositoryName.text ?? ""
+        NetworkManager.language = language.text ?? ""
+        
     }
     
     @IBAction func startSearch(_ sender: UIButton) {
@@ -23,8 +28,5 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
 }

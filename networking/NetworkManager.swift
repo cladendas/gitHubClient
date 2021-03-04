@@ -9,6 +9,8 @@ import UIKit
 
 class NetworkManager {
     
+    static var key = ""
+    static var language = ""
     ///Как сортировать: 0 - по возрастанию, 1 - по убыванию, по умолчанию = 0
     static var order = 0
     
@@ -31,7 +33,7 @@ class NetworkManager {
         
         //в массиве отражаются все необходимые для запроса элементы в порядке, в котором они следуют в поисковой строке
         urlComponents.queryItems = [
-//            URLQueryItem(name: "q", value: "\(key.text ?? "")+language:\(progLang.text ?? "")"),
+//            URLQueryItem(name: "q", value: "\(key)+language:\(language)"),
             URLQueryItem(name: "q", value: "doom+language:ruby"),
             URLQueryItem(name: "sort", value: "stars"),
             URLQueryItem(name: "order", value: "\(order == 0 ? "asc" : "desc")")
