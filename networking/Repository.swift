@@ -15,8 +15,6 @@ struct Repository {
     private(set) var avatar_url: String
     private(set) var html_url: String
     
-    
-    
     init? (json:  Dictionary<String, Any>) {
         guard
             let name = json["name"] as? String,

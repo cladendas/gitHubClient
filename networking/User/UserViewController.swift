@@ -15,15 +15,12 @@ class UserViewController: UIViewController {
     
     var repositories: [Repository] = []
     
-    @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) {
-        NetworkManager.order = sender.selectedSegmentIndex
-        NetworkManager.key = repositoryName.text ?? ""
-        NetworkManager.language = language.text ?? ""
-        
+    @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) { 
     }
     
     @IBAction func startSearch(_ sender: UIButton) {
-        
+        NetworkManager.key = repositoryName.text ?? ""
+        NetworkManager.language = language.text ?? ""
     }
     
     override func viewDidLoad() {

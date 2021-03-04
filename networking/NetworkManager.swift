@@ -33,8 +33,8 @@ class NetworkManager {
         
         //в массиве отражаются все необходимые для запроса элементы в порядке, в котором они следуют в поисковой строке
         urlComponents.queryItems = [
-//            URLQueryItem(name: "q", value: "\(key)+language:\(language)"),
-            URLQueryItem(name: "q", value: "doom+language:ruby"),
+            URLQueryItem(name: "q", value: "\(key)+language:\(language)"),
+//            URLQueryItem(name: "q", value: "doom+language:ruby"),
             URLQueryItem(name: "sort", value: "stars"),
             URLQueryItem(name: "order", value: "\(order == 0 ? "asc" : "desc")")
         ]
