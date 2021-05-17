@@ -8,27 +8,35 @@
 import UIKit
 import Kingfisher
 
-class RepositoriesViewController: UIViewController {
+final class RepositoriesViewController: UIViewController {
     
     @IBOutlet weak var repositoriesFound: UILabel!
     @IBOutlet weak var tableRepositories: UITableView!
     
-    var repositories: [Repository] = []
+    ///Наименование репозитория
+    var repositoryName = ""
+    ///Язык
+    var language = ""
+    ///Сортировка
+    var order = 0
     
-    override func viewWillAppear(_ animated: Bool) {
-        NetworkManager.performSearchRepoRequest { (repositories) in
-            self.repositories = repositories
-            
-            DispatchQueue.main.async {
-                self.tableRepositories.reloadData()
-                self.repositoriesFound.text = "Repositories found: \(self.repositories.count)"
-            }
-        }
-        
-    }
+    private var repositories: [Repository] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkManager.key = repositoryName
+        NetworkManager.language = language
+        NetworkManager.order = order
+
+        NetworkManager.performSearchRepoRequest { [weak self] (repositories) in
+            self?.repositories = repositories
+            
+            DispatchQueue.main.async {
+                self?.tableRepositories.reloadData()
+                self?.repositoriesFound.text = "Repositories found: \(self?.repositories.count ?? 0)"
+            }
+        }
     }
 }
 
@@ -45,7 +53,6 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RepositoriesTableViewCell.self), for: indexPath) as! RepositoriesTableViewCell
         
         cell.buildCell(repository: repositories[indexPath.row])
-        
         return cell
     }
 }

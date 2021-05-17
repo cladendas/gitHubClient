@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-class LoginViewContent {
+final class LoginViewContent {
 
 }

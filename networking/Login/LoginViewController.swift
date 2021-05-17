@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var userName: UITextField!
@@ -26,6 +26,5 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         image.kf.setImage(with: url)
-        // Do any additional setup after loading the view.
     }
 }

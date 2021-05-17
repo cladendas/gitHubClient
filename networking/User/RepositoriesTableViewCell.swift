@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepositoriesTableViewCell: UITableViewCell {
+final class RepositoriesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -21,16 +21,4 @@ class RepositoriesTableViewCell: UITableViewCell {
         owner.text = repository.login
         avatar.kf.setImage(with: URL(string: repository.avatar_url))
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

@@ -85,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A1CE38725F11E5D0002BB54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A3CFA6225EFC50F00168073 /* Repository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A1CE38A25F11E690002BB54 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6A3CFA6025EFC4A400168073 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		6A3CF9B025EF8D0000168073 = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +125,8 @@
 				6A3CF9BE25EF8D0000168073 /* SceneDelegate.swift */,
 				6A3CFA6425EFC54C00168073 /* Login */,
 				6A3CFA6525EFC55700168073 /* User */,
-				6A3CFA6025EFC4A400168073 /* NetworkManager.swift */,
-				6A3CFA6225EFC50F00168073 /* Repository.swift */,
+				6A1CE38A25F11E690002BB54 /* Network */,
+				6A1CE38725F11E5D0002BB54 /* Model */,
 				6A3CF9C225EF8D0100168073 /* Main.storyboard */,
 				6A3CF9C525EF8D0600168073 /* Assets.xcassets */,
 				6A3CF9C725EF8D0600168073 /* LaunchScreen.storyboard */,

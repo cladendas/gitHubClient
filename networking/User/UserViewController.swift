@@ -7,23 +7,29 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+final class UserViewController: UIViewController {
     
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var repositoryName: UITextField!
     @IBOutlet weak var language: UITextField!
+    @IBOutlet weak var order: UISegmentedControl!
     
-    var repositories: [Repository] = []
-    
-    @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) { 
+    @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) {
     }
     
     @IBAction func startSearch(_ sender: UIButton) {
-        NetworkManager.key = repositoryName.text ?? ""
-        NetworkManager.language = language.text ?? ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //При переходе передаём наименование репозитория, язык и сортировку
+        if let vc = segue.destination as? RepositoriesViewController {
+            vc.repositoryName = repositoryName.text ?? ""
+            vc.language = language.text ?? ""
+            vc.order = order.selectedSegmentIndex
+        }
     }
 }
