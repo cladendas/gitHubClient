@@ -21,6 +21,7 @@
 		6A3CFA6125EFC4A400168073 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3CFA6025EFC4A400168073 /* NetworkManager.swift */; };
 		6A3CFA6325EFC50F00168073 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3CFA6225EFC50F00168073 /* Repository.swift */; };
 		6A3CFA6725EFCA6200168073 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3CFA6625EFCA6200168073 /* RepositoriesViewController.swift */; };
+		6A8066B0265268E5003503AD /* WKWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8066AF265268E5003503AD /* WKWebViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		6A3CFA6025EFC4A400168073 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6A3CFA6225EFC50F00168073 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		6A3CFA6625EFCA6200168073 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		6A8066AF265268E5003503AD /* WKWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				6A3CFA6425EFC54C00168073 /* Login */,
 				6A3CFA6525EFC55700168073 /* User */,
 				6A1CE38A25F11E690002BB54 /* Network */,
+				6A8066AC265268B1003503AD /* WKWebView */,
 				6A1CE38725F11E5D0002BB54 /* Model */,
 				6A3CF9C225EF8D0100168073 /* Main.storyboard */,
 				6A3CF9C525EF8D0600168073 /* Assets.xcassets */,
@@ -170,6 +173,14 @@
 				6A1CE38125F1066B0002BB54 /* RepositoriesTableViewCell.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		6A8066AC265268B1003503AD /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				6A8066AF265268E5003503AD /* WKWebViewViewController.swift */,
+			);
+			path = WKWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8066B0265268E5003503AD /* WKWebViewViewController.swift in Sources */,
 				6A3CFA6325EFC50F00168073 /* Repository.swift in Sources */,
 				6A3CFA6125EFC4A400168073 /* NetworkManager.swift in Sources */,
 				6A3CFA5D25EFB5EA00168073 /* LoginViewContent.swift in Sources */,

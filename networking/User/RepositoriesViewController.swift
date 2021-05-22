@@ -55,4 +55,14 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.buildCell(repository: repositories[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let wkWebVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: String(describing: WKWebViewViewController.self)) as WKWebViewViewController
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RepositoriesTableViewCell.self), for: indexPath) as! RepositoriesTableViewCell
+        
+        wkWebVC.htmlUrl = cell.htmlUrl
+        navigationController?.pushViewController(wkWebVC, animated: true)
+    }
 }
