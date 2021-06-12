@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		6A1CE38125F1066B0002BB54 /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
-		6A3CF9B925EF8D0000168073 /* networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3CF9B925EF8D0000168073 /* gitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3CF9BC25EF8D0000168073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A3CF9BE25EF8D0000168073 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6A3CF9C325EF8D0100168073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		6A3CF9B025EF8D0000168073 = {
 			isa = PBXGroup;
 			children = (
-				6A3CF9BB25EF8D0000168073 /* networking */,
+				6A3CF9BB25EF8D0000168073 /* gitHubClient */,
 				6A3CF9BA25EF8D0000168073 /* Products */,
 				6A3CFA3425EFB20E00168073 /* Frameworks */,
 			);
@@ -115,12 +115,12 @@
 		6A3CF9BA25EF8D0000168073 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A3CF9B925EF8D0000168073 /* networking.app */,
+				6A3CF9B925EF8D0000168073 /* gitHubClient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6A3CF9BB25EF8D0000168073 /* networking */ = {
+		6A3CF9BB25EF8D0000168073 /* gitHubClient */ = {
 			isa = PBXGroup;
 			children = (
 				6A3CF9BC25EF8D0000168073 /* AppDelegate.swift */,
@@ -135,7 +135,7 @@
 				6A3CF9C725EF8D0600168073 /* LaunchScreen.storyboard */,
 				6A3CF9CA25EF8D0600168073 /* Info.plist */,
 			);
-			path = networking;
+			path = gitHubClient;
 			sourceTree = "<group>";
 		};
 		6A3CFA3425EFB20E00168073 /* Frameworks */ = {
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A3CF9B825EF8D0000168073 /* networking */ = {
+		6A3CF9B825EF8D0000168073 /* gitHubClient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A3CF9E325EF8D0600168073 /* Build configuration list for PBXNativeTarget "networking" */;
+			buildConfigurationList = 6A3CF9E325EF8D0600168073 /* Build configuration list for PBXNativeTarget "gitHubClient" */;
 			buildPhases = (
 				6A3CF9B525EF8D0000168073 /* Sources */,
 				6A3CF9B625EF8D0000168073 /* Frameworks */,
@@ -199,9 +199,9 @@
 			);
 			dependencies = (
 			);
-			name = networking;
+			name = gitHubClient;
 			productName = networking;
-			productReference = 6A3CF9B925EF8D0000168073 /* networking.app */;
+			productReference = 6A3CF9B925EF8D0000168073 /* gitHubClient.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -218,7 +218,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6A3CF9B425EF8D0000168073 /* Build configuration list for PBXProject "networking" */;
+			buildConfigurationList = 6A3CF9B425EF8D0000168073 /* Build configuration list for PBXProject "gitHubClient" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -237,7 +237,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				6A3CF9B825EF8D0000168073 /* networking */,
+				6A3CF9B825EF8D0000168073 /* gitHubClient */,
 			);
 		};
 /* End PBXProject section */
@@ -440,14 +440,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = networking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/gitHubClient/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cladendas.networking;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cladendas.gitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -466,14 +466,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = networking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/gitHubClient/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cladendas.networking;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cladendas.gitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -484,7 +484,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6A3CF9B425EF8D0000168073 /* Build configuration list for PBXProject "networking" */ = {
+		6A3CF9B425EF8D0000168073 /* Build configuration list for PBXProject "gitHubClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A3CF9E125EF8D0600168073 /* Debug */,
@@ -493,7 +493,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A3CF9E325EF8D0600168073 /* Build configuration list for PBXNativeTarget "networking" */ = {
+		6A3CF9E325EF8D0600168073 /* Build configuration list for PBXNativeTarget "gitHubClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A3CF9E425EF8D0600168073 /* Debug */,
