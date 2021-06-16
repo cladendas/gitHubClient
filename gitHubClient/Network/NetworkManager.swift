@@ -17,13 +17,22 @@ final class NetworkManager {
     private static let schema = "https"
     private static let host = "api.github.com"
     private static let searchRepoPath = "/search/repositories"
+    private static let searchUser = "/user"
+    
+    static var tokenUser = ""
+    
+    private static let tokenHeader = [
+        "Authorization" : "token \(tokenUser)"
+    ]
     
     private static let deafaultHeader = [
         "Content-Type" : "application/json",
         "Accept" : "application/vnd.github.v3+json"
     ]
     
-///создание запроса с параметрами
+//-H 'Authorization: token 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' https://api.github.com/user
+    
+    ///создание запроса с параметрами для получения списка репозиториев
     private static func request() -> URLRequest? {
         //URLComponents() позволяет создать URL из составных частей
         var urlComponents = URLComponents()
@@ -90,6 +99,49 @@ final class NetworkManager {
                 }
             } catch {
                 print(error)
+            }
+            
+            guard let _ = String(data: data, encoding: .utf8) else {
+                print("data encoding failed")
+                return
+            }
+        }
+        dataTask.resume()
+    }
+    
+    ///создание запроса для авторизации пользователя по токену
+    private static func sss() -> URLRequest? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = schema
+        urlComponents.host = host
+        urlComponents.path = searchUser
+        
+        guard let url = urlComponents.url else { return nil}
+        
+        print("search request url: \(url)")
+        
+        var request = URLRequest(url: url)
+        
+        request.allHTTPHeaderFields = tokenHeader
+        
+        return request
+    }
+    
+    ///выполнение запроса sss()
+    static func performSearchRepoTEST(complition: @escaping (_ user: User) -> ()) {
+        guard let urlRequest = sss() else {
+            print("url request error")
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse {
+                print("http status code: \(httpResponse.statusCode)")
+            }
+            
+            guard let data = data else {
+                print("no data received")
+                return
             }
             
             guard let _ = String(data: data, encoding: .utf8) else {

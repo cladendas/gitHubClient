@@ -16,6 +16,9 @@ final class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         
+        if let tmpTokenUser = password.text {
+            NetworkManager.tokenUser = tmpTokenUser
+        }
     }
     
     private var gitHubLogo = "https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"

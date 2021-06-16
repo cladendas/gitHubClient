@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="gitHubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
         <!--Search-->
         <scene sceneID="a6d-UO-ONu">
             <objects>
-                <viewController id="o7K-JG-BQG" customClass="UserViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="o7K-JG-BQG" customClass="UserViewController" customModule="gitHubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZTv-Fy-trF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,16 +152,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dso-Mc-AWq">
+                                <rect key="frame" x="83" y="81" width="248" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="8aw-lT-jhR"/>
+                                    <constraint firstAttribute="height" constant="35" id="jPV-Ya-7v2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tht-X2-xuv"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstItem="tht-X2-xuv" firstAttribute="trailing" secondItem="gdk-hG-ePH" secondAttribute="trailing" constant="77" id="Fcl-cJ-lt0"/>
+                            <constraint firstItem="Dso-Mc-AWq" firstAttribute="centerX" secondItem="ZTv-Fy-trF" secondAttribute="centerX" id="Kez-yf-fvu"/>
                             <constraint firstItem="Zve-QQ-GLp" firstAttribute="centerX" secondItem="ZTv-Fy-trF" secondAttribute="centerX" id="L7S-gB-hwS"/>
                             <constraint firstItem="iCy-M6-ck1" firstAttribute="top" secondItem="Zve-QQ-GLp" secondAttribute="bottom" constant="32" id="O2B-VG-aDO"/>
                             <constraint firstItem="tht-X2-xuv" firstAttribute="trailing" secondItem="Qw5-lA-K4I" secondAttribute="trailing" constant="77" id="PoV-YS-us5"/>
                             <constraint firstItem="blI-Dt-Ubr" firstAttribute="top" secondItem="tht-X2-xuv" secondAttribute="top" constant="94" id="SOg-5r-ieS"/>
                             <constraint firstItem="blI-Dt-Ubr" firstAttribute="centerX" secondItem="ZTv-Fy-trF" secondAttribute="centerX" id="VUz-kc-ifH"/>
+                            <constraint firstItem="Dso-Mc-AWq" firstAttribute="top" secondItem="tht-X2-xuv" secondAttribute="top" constant="37" id="XJq-e5-Nfi"/>
                             <constraint firstItem="gdk-hG-ePH" firstAttribute="top" secondItem="blI-Dt-Ubr" secondAttribute="bottom" constant="32" id="ap4-iF-UPJ"/>
                             <constraint firstItem="gdk-hG-ePH" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tht-X2-xuv" secondAttribute="leading" constant="77" id="bBz-4v-BSd"/>
                             <constraint firstItem="gdk-hG-ePH" firstAttribute="centerX" secondItem="ZTv-Fy-trF" secondAttribute="centerX" id="eZi-Nq-bIA"/>
@@ -179,6 +191,7 @@
                         <outlet property="language" destination="Qw5-lA-K4I" id="pcW-Fa-yHQ"/>
                         <outlet property="order" destination="Zve-QQ-GLp" id="1hd-e0-FMa"/>
                         <outlet property="repositoryName" destination="gdk-hG-ePH" id="y3c-g2-lsb"/>
+                        <outlet property="userName" destination="Dso-Mc-AWq" id="ecT-fe-eKC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmT-ef-8O6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -188,7 +201,7 @@
         <!--Repositories-->
         <scene sceneID="PYW-Ek-Bqb">
             <objects>
-                <viewController storyboardIdentifier="RepositoriesViewController" id="rmI-NW-EuD" customClass="RepositoriesViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoriesViewController" id="rmI-NW-EuD" customClass="RepositoriesViewController" customModule="gitHubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EQ-g7-FtZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +210,7 @@
                                 <rect key="frame" x="0.0" y="78" width="414" height="658"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoriesTableViewCell" rowHeight="137" id="lDY-pH-BRU" customClass="RepositoriesTableViewCell" customModule="networking" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoriesTableViewCell" rowHeight="137" id="lDY-pH-BRU" customClass="RepositoriesTableViewCell" customModule="gitHubClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lDY-pH-BRU" id="q8j-VI-X9X">
@@ -311,7 +324,7 @@
         <!--Web View View Controller-->
         <scene sceneID="eMX-HN-KhR">
             <objects>
-                <viewController storyboardIdentifier="WKWebViewViewController" id="xxt-Ge-3Ek" customClass="WKWebViewViewController" customModule="networking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKWebViewViewController" id="xxt-Ge-3Ek" customClass="WKWebViewViewController" customModule="gitHubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wac-ja-Wik">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

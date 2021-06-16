@@ -9,6 +9,7 @@ import UIKit
 
 final class UserViewController: UIViewController {
     
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var repositoryName: UITextField!
     @IBOutlet weak var language: UITextField!
@@ -22,6 +23,11 @@ final class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkManager.performSearchRepoTEST { user in
+            self.userName.text = user.userName
+            self.avatar.kf.setImage(with: URL(string: user.avatarURL))
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
