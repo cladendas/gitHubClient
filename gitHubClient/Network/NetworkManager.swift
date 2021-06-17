@@ -21,19 +21,15 @@ final class NetworkManager {
     
     static var tokenUser = ""
     
-    private static let tokenHeader = [
-        "Authorization" : "token \(tokenUser)"
-    ]
+    static let tokenHeader = ["Authorization" : "token \(tokenUser)"]
     
     private static let deafaultHeader = [
         "Content-Type" : "application/json",
         "Accept" : "application/vnd.github.v3+json"
     ]
     
-//-H 'Authorization: token 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' https://api.github.com/user
-    
     ///создание запроса с параметрами для получения списка репозиториев
-    private static func request() -> URLRequest? {
+    private static func requestRepo() -> URLRequest? {
         //URLComponents() позволяет создать URL из составных частей
         var urlComponents = URLComponents()
         urlComponents.scheme = schema
@@ -64,7 +60,7 @@ final class NetworkManager {
         
         var repositories: [Repository] = []
         
-        guard let urlRequest = request() else {
+        guard let urlRequest = requestRepo() else {
             print("url request error")
             return
         }
@@ -110,7 +106,7 @@ final class NetworkManager {
     }
     
     ///создание запроса для авторизации пользователя по токену
-    private static func sss() -> URLRequest? {
+    private static func requestUser() -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = schema
         urlComponents.host = host
@@ -127,9 +123,10 @@ final class NetworkManager {
         return request
     }
     
-    ///выполнение запроса sss()
-    static func performSearchRepoTEST(complition: @escaping (_ user: User) -> ()) {
-        guard let urlRequest = sss() else {
+    ///выполнение запроса requestUser()
+    static func performSearchUser(complition: @escaping (_ user: User) -> ()) {
+        
+        guard let urlRequest = requestUser() else {
             print("url request error")
             return
         }
@@ -142,6 +139,17 @@ final class NetworkManager {
             guard let data = data else {
                 print("no data received")
                 return
+            }
+
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as?  Dictionary<String, Any> {
+                    
+                    if let user = User(json: json) {
+                        complition(user)
+                    }
+                }
+            } catch {
+                print(error)
             }
             
             guard let _ = String(data: data, encoding: .utf8) else {

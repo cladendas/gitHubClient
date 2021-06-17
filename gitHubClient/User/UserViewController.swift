@@ -23,10 +23,14 @@ final class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NetworkManager.performSearchRepoTEST { user in
-            self.userName.text = user.userName
-            self.avatar.kf.setImage(with: URL(string: user.avatarURL))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkManager.performSearchUser { [weak self] (user) in
+            DispatchQueue.main.async {
+                self?.userName.text = user.userName
+                self?.avatar.kf.setImage(with: URL(string: user.avatarURL))
+            }
         }
     }
     

@@ -9,13 +9,13 @@ import Foundation
 
 struct User: Codable {
     
-    var userName: String
-    var avatarURL: String
+    private(set) var userName: String
+    private(set) var avatarURL: String
 
-    init? (json:  Dictionary<String, String>) {
+    init? (json:  Dictionary<String, Any>) {
         guard
-            let userName = json["login"],
-            let avatarURL = json["avatar_url"]
+            let userName = json["login"] as? String,
+            let avatarURL = json["avatar_url"] as? String
         else { return nil }
         
         self.userName = userName
