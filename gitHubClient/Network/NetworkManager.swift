@@ -14,14 +14,20 @@ final class NetworkManager {
     ///Как сортировать: 0 - по возрастанию, 1 - по убыванию, по умолчанию = 0
     static var order = 0
     
+    ///Токен, который введёт пользователь
+    static var tokenUser = ""
+    
     private static let schema = "https"
     private static let host = "api.github.com"
     private static let searchRepoPath = "/search/repositories"
     private static let searchUser = "/user"
     
-    static var tokenUser = ""
     
-    private static let tokenHeader = ["Authorization" : "token \(tokenUser)"]
+    private static var tokenHeader: [String : String] {
+        get {
+            return ["Authorization" : "token \(tokenUser)"]
+        }
+    }
     
     private static let deafaultHeader = [
         "Content-Type" : "application/json",
@@ -132,8 +138,11 @@ final class NetworkManager {
         }
         
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            var tmpStatusCode = 1
+            
             if let httpResponse = response as? HTTPURLResponse {
                 print("http status code: \(httpResponse.statusCode)")
+                tmpStatusCode = httpResponse.statusCode
             }
             
             guard let data = data else {
@@ -144,7 +153,7 @@ final class NetworkManager {
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as?  Dictionary<String, Any> {
                     
-                    if let user = User(json: json) {
+                    if let user = User(json: json), tmpStatusCode == 200 {
                         complition(user)
                     }
                 }

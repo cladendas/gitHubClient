@@ -24,9 +24,11 @@ final class LoginViewController: UIViewController {
             NetworkManager.performSearchUser { (user) in
                 uVC.tmpUserName = user.userName
                 uVC.tmpAvatarURL = user.avatarURL
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(uVC, animated: true)
+                }
             }
-            
-            self.navigationController?.pushViewController(uVC, animated: true)
         }
     }
     
@@ -38,6 +40,6 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         image.kf.setImage(with: url)
-        
+        userName.isHidden = true
     }
 }
