@@ -15,6 +15,9 @@ final class UserViewController: UIViewController {
     @IBOutlet weak var language: UITextField!
     @IBOutlet weak var order: UISegmentedControl!
     
+    var tmpUserName = ""
+    var tmpAvatarURL = ""
+    
     @IBAction func ascendedSegmentControl(_ sender: UISegmentedControl) {
     }
     
@@ -23,16 +26,12 @@ final class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        NetworkManager.performSearchUser { [weak self] (user) in
-            DispatchQueue.main.async {
-                self?.userName.text = user.userName
-                self?.avatar.kf.setImage(with: URL(string: user.avatarURL))
-            }
+        DispatchQueue.main.async {
+            self.userName.text = self.tmpUserName
+            self.avatar.kf.setImage(with: URL(string: self.tmpAvatarURL))
         }
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //При переходе передаём наименование репозитория, язык и сортировку

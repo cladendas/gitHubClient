@@ -21,7 +21,7 @@ final class NetworkManager {
     
     static var tokenUser = ""
     
-    static let tokenHeader = ["Authorization" : "token \(tokenUser)"]
+    private static let tokenHeader = ["Authorization" : "token \(tokenUser)"]
     
     private static let deafaultHeader = [
         "Content-Type" : "application/json",

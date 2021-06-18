@@ -16,8 +16,17 @@ final class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         
-        if let tmpTokenUser = password.text {
+        if let tmpTokenUser = password.text, password.text != "" {
             NetworkManager.tokenUser = tmpTokenUser
+
+            let uVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: String(describing: UserViewController.self)) as UserViewController
+            
+            NetworkManager.performSearchUser { (user) in
+                uVC.tmpUserName = user.userName
+                uVC.tmpAvatarURL = user.avatarURL
+            }
+            
+            self.navigationController?.pushViewController(uVC, animated: true)
         }
     }
     
@@ -29,5 +38,6 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         image.kf.setImage(with: url)
+        
     }
 }
