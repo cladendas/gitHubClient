@@ -40,7 +40,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2g6-he-WlI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter your token..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2g6-he-WlI">
                                 <rect key="frame" x="77" y="454" width="260" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="eUK-aQ-u75"/>
@@ -60,18 +60,30 @@
                                     <constraint firstAttribute="height" constant="218" id="hiq-em-Q3c"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http status code: 401" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIU-ag-zgj">
+                                <rect key="frame" x="37" y="388" width="340" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="8mb-0F-ca7"/>
+                                    <constraint firstAttribute="width" constant="340" id="nKv-un-Z33"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstItem="wsg-Sp-qJF" firstAttribute="top" secondItem="2g6-he-WlI" secondAttribute="bottom" constant="32" id="7kZ-BI-V58"/>
                             <constraint firstItem="oR8-LP-1A8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BHg-vK-qTr"/>
+                            <constraint firstItem="2g6-he-WlI" firstAttribute="top" secondItem="UIU-ag-zgj" secondAttribute="bottom" constant="18" id="EbI-Af-W8f"/>
                             <constraint firstItem="2g6-he-WlI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FC2-xD-0JB"/>
                             <constraint firstItem="oR8-LP-1A8" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="FMZ-u1-n3m"/>
                             <constraint firstItem="oR8-LP-1A8" firstAttribute="top" secondItem="Mg0-gE-4Un" secondAttribute="bottom" constant="32" id="M7u-VI-QQz"/>
                             <constraint firstItem="2g6-he-WlI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="Mm0-Zo-Xb8"/>
                             <constraint firstItem="Mg0-gE-4Un" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="94" id="UVy-cO-sEN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oR8-LP-1A8" secondAttribute="trailing" constant="77" id="VMr-GY-5tk"/>
+                            <constraint firstItem="UIU-ag-zgj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vyp-Cy-fEa"/>
                             <constraint firstItem="2g6-he-WlI" firstAttribute="top" secondItem="oR8-LP-1A8" secondAttribute="bottom" constant="32" id="WjO-GX-xc2"/>
                             <constraint firstItem="wsg-Sp-qJF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f4D-Xu-g0q"/>
                             <constraint firstItem="Mg0-gE-4Un" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mNT-qR-5tr"/>
@@ -82,6 +94,7 @@
                     <connections>
                         <outlet property="image" destination="Mg0-gE-4Un" id="gXC-ki-mjB"/>
                         <outlet property="password" destination="2g6-he-WlI" id="Ndt-FZ-eRl"/>
+                        <outlet property="tokenNotValid" destination="UIU-ag-zgj" id="HIJ-nr-B2f"/>
                         <outlet property="userName" destination="oR8-LP-1A8" id="P11-YL-9BT"/>
                     </connections>
                 </viewController>
@@ -151,13 +164,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dso-Mc-AWq">
-                                <rect key="frame" x="83" y="37" width="248" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, userName!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dso-Mc-AWq">
+                                <rect key="frame" x="67" y="37" width="280" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="248" id="8aw-lT-jhR"/>
+                                    <constraint firstAttribute="width" constant="280" id="8aw-lT-jhR"/>
                                     <constraint firstAttribute="height" constant="35" id="jPV-Ya-7v2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -362,6 +375,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

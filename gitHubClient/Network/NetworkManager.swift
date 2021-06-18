@@ -130,7 +130,7 @@ final class NetworkManager {
     }
     
     ///выполнение запроса requestUser()
-    static func performSearchUser(complition: @escaping (_ user: User) -> ()) {
+    static func performSearchUser(complition: @escaping (_ user: User?, _ statusCode: Int) -> ()) {
         
         guard let urlRequest = requestUser() else {
             print("url request error")
@@ -153,9 +153,7 @@ final class NetworkManager {
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as?  Dictionary<String, Any> {
                     
-                    if let user = User(json: json), tmpStatusCode == 200 {
-                        complition(user)
-                    }
+                    complition(User(json: json), tmpStatusCode)
                 }
             } catch {
                 print(error)

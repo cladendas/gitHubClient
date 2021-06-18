@@ -13,21 +13,33 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var tokenNotValid: UILabel!
     
     @IBAction func loginButton(_ sender: UIButton) {
         
         if let tmpTokenUser = password.text, password.text != "" {
-            NetworkManager.tokenUser = tmpTokenUser
 
             let uVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: String(describing: UserViewController.self)) as UserViewController
             
-            NetworkManager.performSearchUser { (user) in
-                uVC.tmpUserName = user.userName
-                uVC.tmpAvatarURL = user.avatarURL
+            NetworkManager.tokenUser = tmpTokenUser
+            NetworkManager.performSearchUser { (user, statusCode) in
                 
-                DispatchQueue.main.async {
-                    self.navigationController?.pushViewController(uVC, animated: true)
+                if statusCode == 200, let user = user {
+                    uVC.tmpUserName = user.userName
+                    uVC.tmpAvatarURL = user.avatarURL
+                    
+                    DispatchQueue.main.async {
+                        self.tokenNotValid.isHidden = true
+                        self.navigationController?.pushViewController(uVC, animated: true)
+                    }
+                    
+                } else {
+                    DispatchQueue.main.async {
+                        self.tokenNotValid.text = "http status code: \(statusCode)"
+                        self.tokenNotValid.isHidden = false
+                    }
                 }
+                
             }
         }
     }
@@ -41,5 +53,6 @@ final class LoginViewController: UIViewController {
 
         image.kf.setImage(with: url)
         userName.isHidden = true
+        tokenNotValid.isHidden = true
     }
 }

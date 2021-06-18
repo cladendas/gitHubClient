@@ -27,7 +27,7 @@ final class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.userName.text = self.tmpUserName
+            self.userName.text = "Welcome, \(self.tmpUserName)"
             self.avatar.kf.setImage(with: URL(string: self.tmpAvatarURL))
         }
     }
